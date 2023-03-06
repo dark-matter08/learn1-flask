@@ -91,6 +91,13 @@ def single_book(id):
 
                 return jsonify(updated_book)
 
+    if request.method == 'DELETE':
+        for index, book in enumerate(book_list):
+            if book['id'] == id:
+                book_list.pop(index)
+
+                return jsonify(book_list)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
